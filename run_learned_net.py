@@ -151,8 +151,6 @@ file.close()
 #         output_text = output_text[::-1]
 #     print("\noutput :", output_text)
 
-#poszlo
-
 
 
 

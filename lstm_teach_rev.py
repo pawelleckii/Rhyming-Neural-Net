@@ -141,7 +141,7 @@ if __name__ == '__main__':
               batch_size=batch_size,
               epochs=epochs,
               validation_split=0.2)
-    model.save(filename + '_model.h5')
+    model.save('models/' + filename + '_model.h5')
 
     # Next: inference mode (sampling).
     # Here's the drill:
@@ -153,7 +153,7 @@ if __name__ == '__main__':
 
     # Define sampling models
     encoder_model = Model(encoder_inputs, encoder_states)
-    encoder_model.save(filename + '_encoder.h5')
+    encoder_model.save('models/' + filename + '_encoder.h5')
 
     decoder_state_input_h = Input(shape=(latent_dim,))
     decoder_state_input_c = Input(shape=(latent_dim,))
@@ -165,7 +165,7 @@ if __name__ == '__main__':
     decoder_model = Model(
         [decoder_inputs] + decoder_states_inputs,
         [decoder_outputs] + decoder_states)
-    decoder_model.save(filename + '_decoder.h5')
+    decoder_model.save('models/' + filename + '_decoder.h5')
 
     # Reverse-lookup token index to decode sequences back to
     # something readable.

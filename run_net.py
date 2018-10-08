@@ -59,12 +59,12 @@ filename = 'modelB_20e_REV_lat1000'
 is_reversed = True
 
 print("Loading model")
-model = load_model(filename + '_model.h5')
+model = load_model('models/' + filename + '_model.h5')
 # plot_model(model, to_file=filename + '_model.png', show_shapes=True)
 
-encoder_model = load_model(filename + '_encoder.h5')
+encoder_model = load_model('models/' + filename + '_encoder.h5')
 # plot_model(encoder_model, to_file=filename + '_encoder.png', show_shapes=True)
-decoder_model = load_model(filename + '_decoder.h5')
+decoder_model = load_model('models/' + filename + '_decoder.h5')
 # plot_model(decoder_model, to_file=filename + '_decoder.png', show_shapes=True)
 print("model loaded")
 

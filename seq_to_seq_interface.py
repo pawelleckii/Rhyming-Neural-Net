@@ -5,7 +5,7 @@ from keras.layers import Input, LSTM, Dense
 import random
 import numpy as np
 
-from lstm_seq2seq import max_encoder_seq_length, num_encoder_tokens, decode_sequence
+from lstm_teach import max_encoder_seq_length, num_encoder_tokens, decode_sequence
 from seq_param import input_token_index
 
 

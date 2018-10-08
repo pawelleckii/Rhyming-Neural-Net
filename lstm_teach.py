@@ -64,7 +64,7 @@ if __name__ == '__main__':
     batch_size = 64
     latent_dim = 256
     num_samples = 20000
-    checkpoint_name = filename + '_ep-{epoch:02d}vlos-{val_loss:.2f}.h5'
+    checkpoint_name = 'models/' + filename + '_ep-{epoch:02d}vlos-{val_loss:.2f}.h5'
     checkpoint = keras.callbacks.ModelCheckpoint(checkpoint_name, monitor='val_loss', verbose=0, save_best_only=False, save_weights_only=False, mode='auto', period=100);
     history = History()
     callbacks = [checkpoint, history]
@@ -158,7 +158,7 @@ if __name__ == '__main__':
               epochs=epochs,
               validation_split=0.2,
               callbacks=callbacks)
-    model.save(filename + '_model.h5')
+    model.save('models/' + filename + '_model.h5')
 
     # Next: inference mode (sampling).
     # Here's the drill:
@@ -170,7 +170,7 @@ if __name__ == '__main__':
 
     # Define sampling models
     encoder_model = Model(encoder_inputs, encoder_states)
-    encoder_model.save(filename + '_encoder.h5')
+    encoder_model.save('models/' + filename + '_encoder.h5')
 
     decoder_state_input_h = Input(shape=(latent_dim,))
     decoder_state_input_c = Input(shape=(latent_dim,))
@@ -182,7 +182,7 @@ if __name__ == '__main__':
     decoder_model = Model(
         [decoder_inputs] + decoder_states_inputs,
         [decoder_outputs] + decoder_states)
-    decoder_model.save(filename + '_decoder.h5')
+    decoder_model.save('models/' + filename + '_decoder.h5')
 
 
     # Reverse-lookup token index to decode sequences back to

@@ -53,9 +53,9 @@ def decode_sequence(input_seq):
 
 filename = '100_rev'
 
-model = load_model(filename + '_model.h5')
-encoder_model = load_model(filename + '_encoder.h5')
-decoder_model = load_model(filename + '_decoder.h5')
+model = load_model('models/' + filename + '_model.h5')
+encoder_model = load_model('models/' + filename + '_encoder.h5')
+decoder_model = load_model('models/' + filename + '_decoder.h5')
 
 num_samples = 100
 data_path = 'test_data_shuffle.txt'

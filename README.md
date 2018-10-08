@@ -3,6 +3,7 @@ LSTM network created using Tensorflow and Keras frameworks.
 For provided word generates a rhyme with ~80% performance.
 
 
+
 Sample action:
 
 INPUT   OUTPUT

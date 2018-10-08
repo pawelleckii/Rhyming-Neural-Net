@@ -6,6 +6,7 @@ Sample action:
 
 INPUT   OUTPUT
 tissue	purview
+
 attach	wristwatch
 grace	showplace
 abate	vacillate

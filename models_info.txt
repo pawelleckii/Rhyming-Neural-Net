@@ -1,0 +1,16 @@
+modelX: domyslnie
+is_reversed = False
+epochs = "e..."
+batch_size = 64
+latent_dim = 256
+num_samples = 20000
+
+jezeli w nazwie jest b... znaczy ze batch size zostal nadpisany
+
+modelL
+is_reversed = False (ale nadpisany "REV" - True)
+epochs = 50
+batch_size = 128
+num_samples = 20000
+
+latent_dim = ...

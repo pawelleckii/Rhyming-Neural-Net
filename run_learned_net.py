@@ -4,6 +4,7 @@ from keras.utils import plot_model
 from seq_param import *
 import numpy as np
 import pydot_ng
+from nltk.corpus import wordnet
 
 
 def generate_sequence(input_word, seq_length, dict_length):
@@ -52,10 +53,12 @@ def decode_sequence(input_seq):
 
 
 # MAIN
+checkIfExist = False
 
-filename = 'modelX_200e'
-is_reversed = False
+filename = 'modelB_20e_REV_lat1000'
+is_reversed = True
 
+print("Loading model")
 model = load_model(filename + '_model.h5')
 # plot_model(model, to_file=filename + '_model.png', show_shapes=True)
 
@@ -63,6 +66,7 @@ encoder_model = load_model(filename + '_encoder.h5')
 # plot_model(encoder_model, to_file=filename + '_encoder.png', show_shapes=True)
 decoder_model = load_model(filename + '_decoder.h5')
 # plot_model(decoder_model, to_file=filename + '_decoder.png', show_shapes=True)
+print("model loaded")
 
 num_samples = 100
 data_path = 'test_data_shuffle.txt'
@@ -122,24 +126,32 @@ for seq_index in range(100):
     if is_reversed:
         input_sentence = input_sentence[::-1]
         decoded_sentence = decoded_sentence[::-1]
-    print('-')
-    print(input_sentence)
-    print(decoded_sentence)
-    file.write(input_sentence + ";" + decoded_sentence + "\n")
+    # print('-')
+    # print(input_sentence)
+    # print(decoded_sentence)
+    exist_point = ""
+    if checkIfExist:
+        if not wordnet.synsets(decoded_sentence):
+            exist_point = "0;"
+        else:
+            exist_point = "1;"
+    file.write(input_sentence + ";" + decoded_sentence + exist_point + "\n")
 file.close()
 
 
-while True:
-    test_seq = input("Input word to rhyme: ")
-    if test_seq == "" or test_seq == 'q':
-        break
-    if is_reversed:
-        test_seq = test_seq[::-1]
-    test_np_array = generate_sequence(test_seq, max_encoder_seq_length, num_encoder_tokens)
-    output_text = decode_sequence(test_np_array)
-    if is_reversed:
-        output_text = output_text[::-1]
-    print("\noutput :", output_text)
+# while True:
+#     test_seq = input("Input word to rhyme: ")
+#     if test_seq == "" or test_seq == 'q':
+#         break
+#     if is_reversed:
+#         test_seq = test_seq[::-1]
+#     test_np_array = generate_sequence(test_seq, max_encoder_seq_length, num_encoder_tokens)
+#     output_text = decode_sequence(test_np_array)
+#     if is_reversed:
+#         output_text = output_text[::-1]
+#     print("\noutput :", output_text)
+
+#poszlo
 
 
 

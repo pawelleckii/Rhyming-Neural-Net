@@ -1,6 +1,6 @@
 # Rhyming-Neural-Net
 LSTM network created using Tensorflow and Keras frameworks.
-For provided word generates a rhyme with ~80% performance.
+For provided word, the net generates a rhyme with ~80% performance.
 
 
 

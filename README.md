@@ -7,17 +7,17 @@ Run with run_net.py or run_net_rev.py script. Best model so far is 'modelL_50e_R
 
 # Sample action:
 
-INPUT   OUTPUT
-* tissue	purview
-* attach	wristwatch
-* grace	showplace
-* abate	vacillate
-* humdrum	aurum
-* amphibole	pole
-* electrician	ignition
-* tomboy	malloy
-* expressivity	interactivity
-* canine	serpentine
-* mausoleum	aurum
+* INPUT  | OUTPUT
+* tissue	| purview
+* attach	| wristwatch
+* grace	| showplace
+* abate	| vacillate
+* humdrum	| aurum
+* amphibole	| pole
+* electrician	| ignition
+* tomboy	| malloy
+* expressivity	| interactivity
+* canine	| serpentine
+* mausoleum	| aurum
 
 *More results in file results.xlsx
